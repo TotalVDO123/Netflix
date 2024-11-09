@@ -26,7 +26,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
     response.status(200).json({ type: 'Success', data });
   } catch (error) {
-    console.log(error.data);
-    response.status(500).json({ type: 'Error', data: error.data });
+    console.error(error);
+    response.status(500).json({ type: 'Error', data: new Error('An unexpected error occurred') });
   }
 }
